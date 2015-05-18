@@ -327,6 +327,40 @@ function getInfoFromDraft(itmid) {
 
 function updateSiteContent(itmid) {
 	
+		var OtherProgs = "";
+		if (typeof(drftVals[0].otherPrograms) != 'undefined') {
+			OtherProgs = drftVals[0].otherPrograms;
+		}
+		
+		var siteArea = "";
+		if (typeof(drftVals[0].siteArea) != 'undefined') {
+			siteArea = drftVals[0].siteArea;
+		}
+		
+		var materialsCat = "";
+		if (typeof(drftVals[0].materialsCat) != 'undefined') {
+			materialsCat = drftVals[0].materialsCat;
+		}
+		
+		var contentType = "";
+		if (typeof(drftVals[0].contentType) != 'undefined') {
+			contentType = drftVals[0].contentType;
+		}
+		
+		var programs = "";
+		if (typeof(drftVals[0].programs) != 'undefined') {
+			programs = drftVals[0].programs;
+		}
+		
+		var matType = "";
+		if (typeof(drftVals[0].materialsType) != 'undefined') {
+			matType = drftVals[0].materialsType;
+		}
+		
+		var description = "";
+		if (typeof(drftVals[0].description) != 'undefined') {
+			description = drftVals[0].description;
+		}
 	
 	$().SPServices({
 		operation : "UpdateListItems",
@@ -336,16 +370,16 @@ function updateSiteContent(itmid) {
 		updates : "<Batch OnError='Continue' PreCalc='TRUE' >"
 		 + "<Method ID='1' Cmd='Update'>"
 		 + "<Field Name='ID'>" + itmid + "</Field>"
-		 + "<Field Name='OtherPrograms' >" + drftVals[0].otherPrograms + "</Field>"
-		 + "<Field Name='SiteArea' >" + drftVals[0].siteArea + "</Field>"
-		 + "<Field Name='MaterialsCategory' >" + drftVals[0].materialsCat + "</Field>"
-		 + "<Field Name='ContentType' >" + drftVals[0].contentType + "</Field>"
-		 + "<Field Name='Programs' >" + drftVals[0].programs + "</Field>"
-		 + "<Field Name='MaterialsType' >" + drftVals[0].materialsType + "</Field>"
+		 + "<Field Name='OtherPrograms' >" + OtherProgs + "</Field>"
+		 + "<Field Name='SiteArea' >" + siteArea + "</Field>"
+		 + "<Field Name='MaterialsCategory' >" + materialsCat + "</Field>"
+		 + "<Field Name='ContentType' >" + contentType + "</Field>"
+		 + "<Field Name='Programs' >" + programs + "</Field>"
+		 + "<Field Name='MaterialsType' >" + matType + "</Field>"
 		 + "<Field Name='Region' >" + drftVals[0].region + "</Field>"
 		 + "<Field Name='Country' >" + drftVals[0].country + "</Field>"
 		 + "<Field Name='SiteName' >" + drftVals[0].siteName + "</Field>"
-		 + "<Field Name='Description0' >" + drftVals[0].description + "</Field>"
+		 + "<Field Name='Description0' >" + description + "</Field>"
 		 + "<Field Name='Legend' >" + drftVals[0].status + "</Field>"
 		 + "</Method></Batch>",
 		completefunc : function (xData, Status) {
